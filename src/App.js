@@ -1,8 +1,9 @@
 import './App.css';
-import { useState } from 'react';
-import Pang from './Pang';
+import { useEffect, useState } from 'react';
 import Toggle from 'react-toggle';
 import "react-toggle/style.css"
+
+import Pang from './Pang';
 import sun from './assets/sun.png'
 import moon from './assets/moon.png'
 
@@ -26,6 +27,46 @@ function App() {
   const [boardSize, setBoardSize] = useState(initialBoardSize);
   const [board, setBoard] = useState(pang.board);
   const [gameState, setGameState] = useState(GameState.BEFORE);
+
+  useEffect(() => {
+    const pathname = window.location.pathname.split('/')[1];
+    const url = new URLSearchParams(pathname);
+    
+    const gameState = url.get("gameState");
+    const theme = url.get("theme");
+    const boardSize = url.get("boardSize");
+    const board = url.get("board");
+    
+    if (gameState != null) setGameState(gameState);
+    if (theme != null) document.getElementById('root-container').dataset.theme = theme;
+    if (boardSize != null) {
+      pang.boardSize = Number(boardSize);
+      setBoardSize(Number(boardSize));
+    }
+    if (board != null) {
+      const remainingBoard = board.split(',').map(elem => elem === 'true');
+      pang.board = remainingBoard;
+      setBoard(remainingBoard);
+      pang.calculateBoardLogic();
+    }
+  }, []);
+  
+  // Apply current game status to URL
+  useEffect(() => {
+    changeURL();
+  }, [board, gameState]);
+
+  const changeURL = () => {
+    let currentState = {
+      gameState: gameState,
+      theme: document.getElementById('root-container').dataset.theme,
+      boardSize: boardSize,
+      board: board
+    }
+    let params = new URLSearchParams(currentState).toString();
+
+    window.history.pushState("", null, params);
+  }
 
   // 3 <= boardSize <= 15 is valid
   const changeBoardSize = (value) => {
@@ -58,10 +99,11 @@ function App() {
 
   const changeTheme = (isDarkMode) => {
     document.getElementById('root-container').dataset.theme = isDarkMode ? 'dark' : 'light';
+    changeURL();
   }
 
   return (
-    <body id='root-container' className="App" data-theme="light">
+    <div id='root-container' className="App" data-theme='light'>
       <h1 className='m-top'>Pang Game</h1>
       <div className='toggle-box'>
         <Toggle
@@ -106,7 +148,7 @@ function App() {
             ) 
           })}
       </div>
-    </body>
+    </div>
   );
 }
 

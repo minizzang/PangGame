@@ -1,13 +1,10 @@
-body {
-  height: 100vh;
-}
-
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   user-select: none;
+  height: 100vh;
 }
 
 .App[data-theme='dark'] {
@@ -61,7 +58,7 @@ h1, h3 {
 .box {
   width: 100%;
   aspect-ratio: 1;
-  border: solid 1px black;
+  border: solid 1.5px black;
 }
 
 [data-theme='dark'] .box {

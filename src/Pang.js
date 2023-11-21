@@ -22,12 +22,15 @@ export default class Pang {
         this.board = this.board.map((elem) => {
             return elem = Math.random() > 0.6;
         });
+        this.calculateBoardLogic();
+    }
 
+    calculateBoardLogic() {
         // Reset objects for the case of restart
         this.checkedItems = [];
         this.leaderItems = Array(this.boardSize**2).fill(-1);
         this.groupObject = {};
-        
+
         for (let i=0; i<this.boardSize**2; i++) {
             this.checkNeighbors(-1, i);
         }
