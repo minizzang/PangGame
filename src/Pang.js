@@ -16,6 +16,11 @@ export default class Pang {
         this._boardSize = num;
         this.board = Array(num**2).fill(false);
     }
+
+    // Reset board empty
+    createEmptyBoard(boardSize) {
+        this.board = Array(boardSize**2).fill(false);
+    }
     
     // Reset the board randomly
     createRandomBoard() {
@@ -92,9 +97,11 @@ export default class Pang {
 
                 // Update max group size
                 this.findMaxGroupSize();
+                
+                if (Object.keys(this.groupObject).length === 0) gameOver(true);
             } else {
                 // Trigger game over callback
-                gameOver();
+                gameOver(false);
             }
         }
     }

@@ -90,6 +90,7 @@ h1, h3 {
   height: 5rem;
   border-radius: 2.5rem;
   background-color: pink;
+  cursor: pointer;
 }
 
 .btn-circle:active {
@@ -127,7 +128,7 @@ h1, h3 {
   width: 30%;
   height: 40%;
   background-color: white;
-  opacity: 80%;
+  opacity: 95%;
   border: solid 3px black;
   border-radius: 4rem;
 }
@@ -140,13 +141,13 @@ h1, h3 {
   font-size: 40px;
 }
 
-.btn-start {
+.btn-round-bg {
   width: 50%;
   background-color: white;
   border-radius: 2rem;
   cursor: pointer;
 }
 
-.btn-start:hover {
+.btn-round-bg:hover {
   background-color: pink;
 }
