@@ -1,6 +1,10 @@
 import './App.css';
 import { useState } from 'react';
 import Pang from './Pang';
+import Toggle from 'react-toggle';
+import "react-toggle/style.css"
+import sun from './assets/sun.png'
+import moon from './assets/moon.png'
 
 const GameState = {
   BEFORE: 'before',
@@ -52,9 +56,24 @@ function App() {
     setGameState(GameState.END);
   }
 
+  const changeTheme = (isDarkMode) => {
+    document.getElementById('root-container').dataset.theme = isDarkMode ? 'dark' : 'light';
+  }
+
   return (
-    <div className="App">
-      <h1>Pang Game</h1>
+    <body id='root-container' className="App" data-theme="light">
+      <h1 className='m-top'>Pang Game</h1>
+      <div className='toggle-box'>
+        <Toggle
+          className='toggle'
+          defaultChecked={false}
+          icons={{
+            checked: <img className='toggle-ic' src={sun} alt='light'/>,
+            unchecked: <img className='toggle-ic' src={moon} alt='dark'/>
+          }}
+          onChange={(e) => changeTheme(e.target.checked)}
+        />
+      </div>
 
       {gameState === GameState.BEFORE ? 
         <div className='white-bg'>
@@ -87,7 +106,7 @@ function App() {
             ) 
           })}
       </div>
-    </div>
+    </body>
   );
 }
 

@@ -1,10 +1,57 @@
+body {
+  height: 100vh;
+}
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3vh;
   user-select: none;
+}
+
+.App[data-theme='dark'] {
+  color: white;
+  background-color: #282828;
+}
+
+.m-top {
+  margin-top: 1rem;
+}
+
+/* Toggle custom */
+.toggle-box {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+}
+.toggle.react-toggle .react-toggle-track {
+  background-color: #8b8b8b;
+}
+.toggle.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: rgb(100, 100, 100);
+}
+.toggle.react-toggle--checked .react-toggle-track {
+  background-color: #f5df4e;
+}
+.toggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: rgb(189, 163, 47);
+}
+.toggle.react-toggle--checked .react-toggle-thumb {
+  border-color: white;
+}
+.toggle.react-toggle--focus .react-toggle-thumb {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.toggle-ic {
+  width: 10px;
 }
 
 h1, h3 {
@@ -14,13 +61,15 @@ h1, h3 {
 .box {
   width: 100%;
   aspect-ratio: 1;
-  background-color: white;
-
   border: solid 1px black;
 }
 
+[data-theme='dark'] .box {
+  border-color: white;
+}
+
 .balloon {
-  background-image: url(./balloon.png);
+  background-image: url(./assets/balloon.png);
   background-size: cover;
 }
 
@@ -84,6 +133,10 @@ h1, h3 {
   opacity: 80%;
   border: solid 3px black;
   border-radius: 4rem;
+}
+
+[data-theme='dark'] .white-bg {
+  color: black;
 }
 
 .txt-large {
