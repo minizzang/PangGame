@@ -11,8 +11,6 @@ export default class Pang {
             this.checkNeighbors(-1, i);
         }
         this.findMaxGroupSize();
-
-        console.log("groupObject : ", this.groupObject, "maxGroupsize : ",this.maxGroupSize);
     }
 
     // At first, calculate the group of ballons
@@ -55,25 +53,24 @@ export default class Pang {
         this.maxGroupSize = tempMaxSize;
     }
 
-    shootBalloon(idx) {
+    // Shoot the balloon
+    shootBalloon(idx, gameOver) {
         let leader = this.leaderItems[idx];
         if (leader !== -1) {
-            console.log("shoot: ", leader, this.groupObject[leader], this.groupObject[leader].length);
             let targetGroup = this.groupObject[leader];
             if (targetGroup.length === this.maxGroupSize) {
                 // Remove the Balloons
-                console.log("remove", targetGroup);
                 targetGroup.map(idx => {
-                    console.log("remove", idx);
                     this.board[idx] = false;
+                    this.leaderItems[idx] = -1;
                 });
                 delete this.groupObject[leader];
 
                 // Update max group size
                 this.findMaxGroupSize();
             } else {
-                console.log("gameovver" , this.maxGroupSize);
-                // Game Over
+                // Trigger game over callback
+                gameOver();
             }
         }
     }
