@@ -3,6 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 3vh;
+  user-select: none;
+}
+
+h1, h3 {
+  margin: 0;
 }
 
 .box {
@@ -20,32 +26,77 @@
 
 .container {
   display: grid;
-  width: 40%;
+  width: 36%;
+  margin-top: 2rem;
   grid-template-rows: repeat(var(--size), 1fr);
   grid-template-columns: repeat(var(--size), 1fr);
 }
 
-.over-background {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.txt-over {
+.btn-circle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  background-color: pink;
+}
+
+.btn-circle:active {
+  background-color: palevioletred;
+}
+
+.txt-bold {
+  font-size: 50px;
+}
+
+.mg-s {
+  margin: 0 1rem;
+}
+
+.grey-bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.white-bg {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 40%;
   background-color: white;
-  border: solid 7px black;
-  border-radius: 5rem;
+  opacity: 80%;
+  border: solid 3px black;
+  border-radius: 4rem;
+}
+
+.txt-large {
+  font-size: 40px;
+}
+
+.btn-start {
+  width: 50%;
+  background-color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.btn-start:hover {
+  background-color: pink;
 }

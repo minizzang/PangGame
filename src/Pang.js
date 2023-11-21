@@ -1,19 +1,40 @@
 export default class Pang {
     constructor(boardSize) {
-        this.boardSize = boardSize;
-        this.board = Array.from({length: boardSize**2}, () => Math.random() > 0.6);
+        this._boardSize = boardSize;
+        this.board = Array(boardSize**2).fill(false);
         this.checkedItems = [];
-        this.leaderItems = Array(boardSize**2).fill(-1);
+        this.leaderItems = [];
         this.groupObject = {};
         this.maxGroupSize = 0;
+    }
+    
+    get boardSize() {
+        return this._boardSize;
+    }
 
-        for (let i=0; i<boardSize**2; i++) {
+    set boardSize(num) {
+        this._boardSize = num;
+        this.board = Array(num**2).fill(false);
+    }
+    
+    // Reset the board randomly
+    createRandomBoard() {
+        this.board = this.board.map((elem) => {
+            return elem = Math.random() > 0.6;
+        });
+
+        // Reset objects for the case of restart
+        this.checkedItems = [];
+        this.leaderItems = Array(this.boardSize**2).fill(-1);
+        this.groupObject = {};
+        
+        for (let i=0; i<this.boardSize**2; i++) {
             this.checkNeighbors(-1, i);
         }
         this.findMaxGroupSize();
     }
 
-    // At first, calculate the group of ballons
+    // At first, calculate the group of balloons
     checkNeighbors(leader, target) {
         if (this.checkedItems.includes(target) || target < 0 || target >= this.boardSize**2 ) {
             return;
