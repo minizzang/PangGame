@@ -5,4 +5,11 @@ export const GAME_STATE = {
   SUCCESS: 'success'
 }
 
+export const SHOOT_RESULT = {
+  PLUS_POINT: 'plus_point',
+  MINUS_POINT: 'minus_point',
+  CLEAR_GAME: 'clear_game',
+  FAIL_GAME: 'fail_game'
+}
+
 export const INIT_BOARD_SIZE = 6

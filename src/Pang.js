@@ -1,3 +1,5 @@
+import { SHOOT_RESULT } from "./constants";
+
 export default class Pang {
     constructor(boardSize) {
         this._boardSize = boardSize;
@@ -19,6 +21,7 @@ export default class Pang {
 
     // Reset board empty
     createEmptyBoard(boardSize) {
+        this.boardSize = boardSize;
         this.board = Array(boardSize**2).fill(false);
     }
     
@@ -83,7 +86,7 @@ export default class Pang {
     }
 
     // Shoot the balloon
-    shootBalloon(idx, gameOver) {
+    shootBalloon(idx, shootResult) {
         let leader = this.leaderItems[idx];
         if (leader !== -1) {
             let targetGroup = this.groupObject[leader];
@@ -98,11 +101,16 @@ export default class Pang {
                 // Update max group size
                 this.findMaxGroupSize();
                 
-                if (Object.keys(this.groupObject).length === 0) gameOver(true);
+                shootResult(SHOOT_RESULT.PLUS_POINT);
+                if (Object.keys(this.groupObject).length === 0) {
+                    shootResult(SHOOT_RESULT.CLEAR_GAME);
+                }
             } else {
                 // Trigger game over callback
-                gameOver(false);
+                shootResult(SHOOT_RESULT.FAIL_GAME);
             }
+        } else {
+            shootResult(SHOOT_RESULT.MINUS_POINT);
         }
     }
     
