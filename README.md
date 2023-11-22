@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Pang Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is web-based game created using React.js
 
-## Available Scripts
+## Overview
+![description1](https://github.com/minizzang/PangGame/assets/79495204/972c8121-1d0b-43d4-a774-e4b7f0cf17df)
+**(1) Score** <br/>
+Show the current score.
 
-In the project directory, you can run:
+**(2) Board size controller** <br/>
+You can change the size of the square board. Minimum: 3x3, Maximum: 15x15.
 
-### `npm start`
+**(3) Copy URL button** <br/>
+Click the button to copy the current url to the clipboard. <br/>
+This allows you to share the game while maintaining its current status.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**(4) Dark theme toggle** <br/>
+Pang supports dark theme.
+![main_dark](https://github.com/minizzang/PangGame/assets/79495204/20a9de99-7b7e-40f0-9bf6-06cde9c87168)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## How to play
+![play](https://github.com/minizzang/PangGame/assets/79495204/99ef8ec4-4a50-4754-9d6e-41b388f90a1a)
+- Balloons will be randomly placed.
+- You have to click and pop the balloon according to the rules.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![description2](https://github.com/minizzang/PangGame/assets/79495204/86005d70-9b26-40d2-8584-cd3b3c7fd7b6)
+- Balloons connected up, down, left and right are considered a group and pop together when clicked.
+- You should pop the balloons in the order in which you can pop them the most. ()
+- For example, balloons separated by the same color in the picture are a group and should explode in the order of 1, 2, 3, and 4.
+- If the numbers are the same, the order doesn't matter.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Score
+- If you pop it well in order, you get +1 point,
+- if you pop an empty space -1 point,
+- if you click it out of order, the game ends.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
