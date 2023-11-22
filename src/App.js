@@ -128,11 +128,21 @@ function App() {
     changeURL();
   }
 
+  const copyURLtoClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      alert('Copied! Share with friends :)');
+    } catch (e) {
+      alert('Failed copy to clipboard');
+    }
+  }
+
   return (
     <div id='root-container' className="App" data-theme='light'>
       <h1 className='m-top txt-hover' onClick={goFirstPage}>Pang Game</h1>
       <h3>score : {score}</h3>
-      <div className='toggle-box'>
+      <div className='option-box flex-row'>
+        <div className='btn-copy' onClick={copyURLtoClipboard}>Copy URL</div>
         <Toggle
           className='toggle'
           defaultChecked={false}

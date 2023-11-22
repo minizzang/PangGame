@@ -16,12 +16,26 @@
   margin-top: 1rem;
 }
 
-/* Toggle custom */
-.toggle-box {
+.option-box {
   position: absolute;
   top: 2rem;
   right: 4rem;
 }
+
+.btn-copy {
+  background-color: pink;
+  border-radius: 2rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+[data-theme='dark'] .btn-copy {
+  background-color: transparent;
+  border: solid 2px pink;
+}
+
+/* Toggle custom */
 .toggle.react-toggle .react-toggle-track {
   background-color: #8b8b8b;
 }
