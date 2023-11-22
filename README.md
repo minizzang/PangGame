@@ -26,8 +26,8 @@ Pang supports dark theme.
 
 ![description2](https://github.com/minizzang/PangGame/assets/79495204/86005d70-9b26-40d2-8584-cd3b3c7fd7b6)
 - Balloons connected up, down, left and right are considered a group and pop together when clicked.
-- You should pop the balloons in the order in which you can pop them the most. ()
-- For example, balloons separated by the same color in the picture are a group and should explode in the order of 1, 2, 3, and 4.
+- You should pop the balloons in the order in which you can pop them the most.
+- For example, balloons separated by the same color in the picture are a group and should pop in the order of 1, 2, 3, and 4.
 - If the numbers are the same, the order doesn't matter.
 
 
